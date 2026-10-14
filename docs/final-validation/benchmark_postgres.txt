@@ -1,0 +1,7 @@
+PostgreSQL 16.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11), 64-bit
+Isolation: read committed
+before_postgres_all: status=200 seconds=0.0587 | sql_count=23 loaded_objects=1032 | loaded_jobs=1000 loaded_notes=30 | items=20 total=1000
+before_postgres_failed_offset40: status=200 seconds=0.0528 | sql_count=9 loaded_objects=1011 | loaded_jobs=1000 loaded_notes=9 | items=6 total=1000
+after_postgres_all: status=200 seconds=0.0357 | sql_count=4 loaded_objects=2 | loaded_jobs=0 loaded_notes=0 | items=20 total=1000
+after_postgres_failed_offset40: status=200 seconds=0.0363 | sql_count=4 loaded_objects=2 | loaded_jobs=0 loaded_notes=0 | items=20 total=334
+Upgrade postgres preserved {'tenants': 2, 'api_keys': 2, 'jobs': 1000, 'notes': 1500, 'ledger': 2}; Alembic check succeeded

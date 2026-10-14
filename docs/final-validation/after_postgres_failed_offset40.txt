@@ -1,0 +1,8 @@
+status=200 seconds=0.0363
+sql_count=4 loaded_objects=2
+loaded_jobs=0 loaded_notes=0
+items=20 total=334
+[1] SELECT api_keys.id, api_keys.tenant_id, api_keys.digest, api_keys.active FROM api_keys WHERE api_keys.digest = %(digest_1)s::VARCHAR AND api_keys.active IS true
+[2] SELECT tenants.id AS tenants_id, tenants.name AS tenants_name, tenants.balance AS tenants_balance, tenants.created_at AS tenants_created_at FROM tenants WHERE tenants.id = %(pk_1)s::VARCHAR
+[3] SELECT count(*) AS count_1 FROM jobs WHERE jobs.tenant_id = %(tenant_id_1)s::VARCHAR AND jobs.status = %(status_1)s::VARCHAR
+[4] SELECT jobs.id, jobs.title, jobs.status, jobs.attempts, jobs.cost, jobs.created_at, (SELECT count(*) AS count_1 FROM notes WHERE notes.job_id = jobs.id) AS note_count FROM jobs WHERE jobs.tenant_id = %(tenant_id_1)s::VARCHAR AND jobs.status = %(status_1)s::VARCHAR ORDER BY jobs.created_at DESC, jobs.id DESC LIMIT %(param_1)s::INTEGER OFFSET %(param_2)s::INTEGER

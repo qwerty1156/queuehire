@@ -1,0 +1,2 @@
+All historical fields preserved: {'tenants': 2, 'api_keys': 2, 'jobs': 1000, 'notes': 1500, 'ledger': 2}
+No new upgrade operations detected.

@@ -1,0 +1,13 @@
+status=200 seconds=0.0528
+sql_count=9 loaded_objects=1011
+loaded_jobs=1000 loaded_notes=9
+items=6 total=1000
+[1] SELECT api_keys.id, api_keys.tenant_id, api_keys.digest, api_keys.active FROM api_keys WHERE api_keys.digest = %(digest_1)s::VARCHAR AND api_keys.active IS true
+[2] SELECT tenants.id AS tenants_id, tenants.name AS tenants_name, tenants.balance AS tenants_balance, tenants.created_at AS tenants_created_at FROM tenants WHERE tenants.id = %(pk_1)s::VARCHAR
+[3] SELECT jobs.id, jobs.tenant_id, jobs.idempotency_key, jobs.title, jobs.text, jobs.status, jobs.attempts, jobs.error_code, jobs.result, jobs.cost, jobs.created_at, jobs.updated_at FROM jobs WHERE jobs.tenant_id = %(tenant_id_1)s::VARCHAR ORDER BY jobs.created_at DESC, jobs.id DESC
+[4] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id
+[5] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id
+[6] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id
+[7] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id
+[8] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id
+[9] SELECT notes.id AS notes_id, notes.job_id AS notes_job_id, notes.text AS notes_text, notes.created_at AS notes_created_at FROM notes WHERE %(param_1)s::VARCHAR = notes.job_id

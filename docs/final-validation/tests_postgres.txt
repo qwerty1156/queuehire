@@ -1,0 +1,11 @@
+PostgreSQL 16.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11), 64-bit
+Isolation: read committed
+........................................................................ [ 62%]
+............................................                             [100%]
+=============================== warnings summary ===============================
+../.queuehire-venv/lib/python3.12/site-packages/starlette/testclient.py:40
+  /workspace/scratch/56c1bfed2cc7/.queuehire-venv/lib/python3.12/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+116 passed, 1 warning in 21.07s

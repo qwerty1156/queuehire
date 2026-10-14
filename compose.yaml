@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: challenge
+      POSTGRES_PASSWORD: challenge
+      POSTGRES_DB: challenge
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U challenge -d challenge"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrate:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://challenge:challenge@db:5432/challenge
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://challenge:challenge@db:5432/challenge
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+  worker:
+    build: .
+    command: ["python", "-m", "app.worker"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://challenge:challenge@db:5432/challenge
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+volumes:
+  pgdata:

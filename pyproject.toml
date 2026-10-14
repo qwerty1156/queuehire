@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+markers = [
+  "acceptance: product acceptance requirements; failures expected on starter",
+  "postgres: requires TEST_DATABASE_URL pointing at a disposable PostgreSQL database",
+]

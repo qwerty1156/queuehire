@@ -1,0 +1,1 @@
+"""QueueHire: vacancy analysis backend."""

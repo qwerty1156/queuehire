@@ -1,0 +1,1 @@
+"""Starter and acceptance checks."""
